@@ -7,7 +7,7 @@ Feature: Checkout Payment
     And user fill last name with "feature"
     And user fill zip postal code with "A5743"
     When user click on continue button
-    Then checkout: overview page should be appear
+    Then checkout: overview page appear
     And item name will appear
     And item quantity will appear
     And item payment information will appear

@@ -10,8 +10,8 @@ public class CheckoutPaymentStepDef {
     @Steps
     CheckoutPaymentStep checkoutPaymentStep;
 
-    @Then("checkout: overview page should be appear")
-    public void checkoutOverviewPageShouldBeAppear() {
+    @Then("checkout: overview page appear")
+    public void checkoutOverviewPageAppear() {
         checkoutPaymentStep.verifyCheckoutOverviewPage();
     }
 

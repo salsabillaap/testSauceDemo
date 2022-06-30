@@ -80,7 +80,14 @@ public class CheckoutItemStep {
     }
 
     @Step
-    public void verifyErrorMessage(){
-        assertTrue(checkoutInfoPage.getErrorMessage().equalsIgnoreCase("error: first name is required"));
+    public void setCartPage(){
+        loginPage.open();
+        loginPage.inputUsername();
+        loginPage.inputPassword();
+        loginPage.clickLoginButton();
+
+        itemPage.clickCartButton();
+        String headerPage = cartPage.getCartHeader();
+        Assert.assertTrue(headerPage.equalsIgnoreCase("Your Cart"));
     }
 }

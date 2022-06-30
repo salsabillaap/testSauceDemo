@@ -22,8 +22,8 @@ public class CheckoutItemStepDef {
         checkoutItemStep.clickCheckout();
     }
 
-    @Then("checkout: your information should be appear")
-    public void checkoutYourInformationShouldBeAppear() {
+    @Then("checkout: your information appear")
+    public void checkoutYourInformationAppear() {
         checkoutItemStep.verifyCheckoutInfoPage();
     }
 
@@ -71,8 +71,8 @@ public class CheckoutItemStepDef {
         checkoutItemStep.clickCartIcon();
     }
 
-//    @Then("error message will appear below {string}")
-//    public void errorMessageWillAppearBelow(String error) {
-//        checkoutItemStep.verifyErrorMessage();
-//    }
+    @Given("user already on cart page")
+    public void userAlreadyOnCartPage() {
+        checkoutItemStep.setCartPage();
+    }
 }
