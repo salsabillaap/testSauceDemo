@@ -33,7 +33,7 @@ Feature: Checkout Item
   Scenario: Checkout item without fill any information
     Given user already on Checkout: Your Information page
     When user click on continue button
-    Then checkout: overview page appear
+    Then error message appear
 
   @test @negative
   Scenario: Checkout item without fill Last Name
@@ -41,7 +41,7 @@ Feature: Checkout Item
     When user fill first name with "test"
     And user fill zip postal code with "A5743"
     And user click on continue button
-    Then checkout: overview page appear
+    Then error message appear
 
   @test @negative
   Scenario: Checkout item without fill Postal Code
@@ -49,4 +49,4 @@ Feature: Checkout Item
     When user fill first name with "test"
     And user fill last name with "feature"
     And user click on continue button
-    Then checkout: overview page appear
+    Then error message appear

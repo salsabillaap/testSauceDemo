@@ -75,4 +75,9 @@ public class CheckoutItemStepDef {
     public void userAlreadyOnCartPage() {
         checkoutItemStep.setCartPage();
     }
+
+    @Then("error message appear")
+    public void errorMessageAppear() {
+        checkoutItemStep.verifyError();
+    }
 }

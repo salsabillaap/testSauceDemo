@@ -90,4 +90,9 @@ public class CheckoutItemStep {
         String headerPage = cartPage.getCartHeader();
         Assert.assertTrue(headerPage.equalsIgnoreCase("Your Cart"));
     }
+
+    @Step
+    public void verifyError(){
+        assertTrue(checkoutInfoPage.getErrorMessage());
+    }
 }
