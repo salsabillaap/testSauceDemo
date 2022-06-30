@@ -15,19 +15,19 @@ Feature: Checkout Item
   Scenario: Cancel checkout
     Given user already on Checkout: Your Information page
     When user click on cancel button
-#    Then return to cart page
+    Then return to cart page
 
   @positive
   Scenario: Return to cart page by cart icon
     Given user already on Checkout: Your Information page
     When user click on cart icon
-#    Then return to cart page
+    Then return to cart page
 
   @negative
   Scenario: Checkout item without fill any information
     Given user already on Checkout: Your Information page
     When user click on continue button
-    Then error message will appear below "Error: First Name is required"
+    Then checkout: overview page should be appear
 
   @negative
   Scenario: Checkout item without fill Last Name
@@ -35,7 +35,7 @@ Feature: Checkout Item
     When user fill first name with "test"
     And user fill zip postal code with "A5743"
     And user click on continue button
-    Then error message will appear below "Error: Last Name is required"
+    Then checkout: overview page should be appear
 
   @negative
   Scenario: Checkout item without fill Postal Code
@@ -43,4 +43,4 @@ Feature: Checkout Item
     When user fill first name with "test"
     And user fill last name with "feature"
     And user click on continue button
-    Then error message will appear below "Error: Postal Code is required"
+    Then checkout: overview page should be appear

@@ -1,9 +1,7 @@
-package starter.StepDef;
+package starter.StepDefinition;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import starter.Step.CheckoutPaymentStep;
 
@@ -50,24 +48,5 @@ public class CheckoutPaymentStepDef {
     @Then("checkout completed")
     public void checkoutCompleted() {
         checkoutPaymentStep.verifyCompletePage();
-    }
-
-    @Given("user already on Checkout: Overview page")
-    public void userAlreadyOnCheckoutOverviewPage() {
-        checkoutPaymentStep.verifyCheckoutOverviewPage();
-    }
-
-    @When("user click on cancel button on overview")
-    public void userClickOnCancelButtonOnOverview() {
-        checkoutPaymentStep.clickCancel();
-    }
-
-    @Then("return to homepage")
-    public void returnToHomepage() {
-    }
-
-    @When("user click on cart icon on overview")
-    public void userClickOnCartIconOnOverview() {
-        checkoutPaymentStep.clickCart();
     }
 }

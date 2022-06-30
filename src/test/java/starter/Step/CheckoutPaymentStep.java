@@ -11,10 +11,11 @@ public class CheckoutPaymentStep {
     CheckoutOverviewPage checkoutOverviewPage;
     CheckoutCompletePage checkoutCompletePage;
 
+
     @Step
     public void verifyCheckoutOverviewPage(){
         String header = checkoutOverviewPage.getpaymentheader();
-        assertTrue(header.equalsIgnoreCase("overview"));
+        assertTrue(header.equalsIgnoreCase("Checkout: Overview"));
     }
 
     @Step
@@ -44,13 +45,13 @@ public class CheckoutPaymentStep {
     @Step
     public void total(){
         String totalitem = checkoutOverviewPage.getitemtotal();
-        assertTrue(totalitem.equalsIgnoreCase("$29.99"));
+        assertTrue(totalitem.equals("Item total: $29.99" ));
 
         String tax = checkoutOverviewPage.getitemtax();
-        assertTrue(tax.equalsIgnoreCase("$2.40"));
+        assertTrue(tax.equals("Tax: $2.40"));
 
         String price = checkoutOverviewPage.getpricetotal();
-        assertTrue(price.equalsIgnoreCase("$32.39"));
+        assertTrue(price.equals("Total: $32.39"));
     }
 
     @Step
@@ -59,18 +60,8 @@ public class CheckoutPaymentStep {
     }
 
     @Step
-    public void clickCancel(){
-        checkoutOverviewPage.clickcancelbutton();
-    }
-
-    @Step
-    public void clickCart(){
-        checkoutOverviewPage.clickcarticon();
-    }
-
-    @Step
     public void verifyCompletePage(){
         String header = checkoutCompletePage.getcompleteheader();
-        assertTrue(header.equalsIgnoreCase("complete"));
+        assertTrue(header.equalsIgnoreCase("Checkout: Complete!"));
     }
 }

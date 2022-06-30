@@ -8,10 +8,10 @@ import org.openqa.selenium.WebElement;
 @DefaultUrl("https://www.saucedemo.com/checkout-step-two.html")
 public class CheckoutOverviewPage extends PageObject {
 
-    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]")
     WebElement overviewheader;
 
-    @FindBy(id = "item_0_title_link")
+    @FindBy(xpath = "//*[@id=\"item_4_title_link\"]/div")
     WebElement itemName;
 
     @FindBy(xpath = "//*[@id=\"checkout_summary_container\"]/div/div[1]/div[3]/div[1]")
@@ -34,12 +34,6 @@ public class CheckoutOverviewPage extends PageObject {
 
     @FindBy(id = "finish")
     WebElement finishbutton;
-
-    @FindBy(id = "cancel")
-    WebElement cancelbutton;
-
-    @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]/a")
-    WebElement carticon;
 
     public String getpaymentheader(){
         return overviewheader.getText();
@@ -75,13 +69,5 @@ public class CheckoutOverviewPage extends PageObject {
 
     public void clickfinishbutton(){
         finishbutton.click();
-    }
-
-    public void clickcancelbutton(){
-        cancelbutton.click();
-    }
-
-    public void clickcarticon(){
-        carticon.click();
     }
 }
