@@ -14,11 +14,18 @@ public class CartPage extends PageObject {
     @FindBy(xpath = "//*[@id=\"item_4_title_link\"]/div")
     WebElement itemName;
 
+    @FindBy(id = "checkout")
+    WebElement checkoutButton;
+
     public String getCartHeader(){
         return headerCartPage.getText();
     }
 
     public String getItemName(){
         return itemName.getText();
+    }
+
+    public void clickCheckoutButton(){
+        checkoutButton.click();
     }
 }
