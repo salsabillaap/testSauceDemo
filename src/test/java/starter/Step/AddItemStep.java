@@ -3,21 +3,23 @@ package starter.Step;
 import net.thucydides.core.annotations.Step;
 import starter.Pages.CartPage;
 import starter.Pages.ItemPage;
+import starter.Pages.LoginInventoryPage;
 import starter.Pages.LoginPage;
 import static org.junit.Assert.*;
 
 public class AddItemStep {
 
-    LoginPage loginPage;
+    LoginInventoryPage loginInventoryPage;
     ItemPage itemPage;
     CartPage cartPage;
 
     @Step
-    public void loginPage(){
-        loginPage.open();
-        loginPage.inputUsername();
-        loginPage.inputPassword();
-        loginPage.clickLoginButton();
+    public void loginInventoryPage(){
+        loginInventoryPage.open();
+        loginInventoryPage.inputUsername();
+        loginInventoryPage.inputPassword();
+        loginInventoryPage.clickLoginButton();
+
     }
 
     @Step

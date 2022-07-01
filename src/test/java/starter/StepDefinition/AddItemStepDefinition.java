@@ -12,7 +12,7 @@ public class AddItemStepDefinition {
 
     @Given("user already login")
     public void user_already_login(){
-        addItemStep.loginPage();
+        addItemStep.loginInventoryPage();
     }
 
     @When("user click add to cart button on item")
