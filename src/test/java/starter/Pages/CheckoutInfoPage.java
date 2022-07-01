@@ -29,7 +29,7 @@ public class CheckoutInfoPage extends PageObject {
     @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]/a")
     WebElement carticon;
 
-    @FindBy(xpath = "//*[@id=\"checkout_info_container\"]/div/form/div[1]/div[4]/h3")
+    @FindBy(xpath = "//*[@id=\"checkout_info_container\"]/div/form/div[1]/div[4]\n")
     WebElement errormessage;
 
     public String getCheckoutInfoHeader(){
@@ -60,7 +60,7 @@ public class CheckoutInfoPage extends PageObject {
         carticon.click();
     }
 
-    public String getErrorMessage(){
-        return errormessage.getText();
+    public boolean getErrorMessage(){
+        return errormessage.isDisplayed();
     }
 }

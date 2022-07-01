@@ -1,4 +1,4 @@
-package starter.StepDef;
+package starter.StepDefinition;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -11,6 +11,17 @@ public class CheckoutItemStepDef {
 
     @Steps
     CheckoutItemStep checkoutItemStep;
+
+
+    @Given("user already add item to cart")
+    public void userAlreadyAddItemToCart() {
+        checkoutItemStep.addedItem();
+    }
+
+    @When("user click on checkout button")
+    public void userClickOnCheckoutButton() {
+        checkoutItemStep.clickCheckout();
+    }
 
     @Then("checkout: your information should be appear")
     public void checkoutYourInformationShouldBeAppear() {
@@ -40,6 +51,8 @@ public class CheckoutItemStepDef {
 
     @Given("user already on Checkout: Your Information page")
     public void userAlreadyOnCheckoutYourInformationPage() {
+        checkoutItemStep.addedItem();
+        checkoutItemStep.clickCheckout();
         checkoutItemStep.verifyCheckoutInfoPage();
     }
 
@@ -51,7 +64,7 @@ public class CheckoutItemStepDef {
 
     @Then("return to cart page")
     public void returnToCartPage() {
-
+        checkoutItemStep.verifyCartPage();
     }
 
     @When("user click on cart icon")
@@ -59,8 +72,18 @@ public class CheckoutItemStepDef {
         checkoutItemStep.clickCartIcon();
     }
 
-    @Then("error message will appear below {string}")
-    public void errorMessageWillAppearBelow(String error) {
+    @Then("error message will appear")
+    public void errorMessageWillAppearBelow() {
         checkoutItemStep.verifyErrorMessage();
+    }
+
+    @Given("user already on cart page")
+    public void userAlreadyOnCartPage() {
+        checkoutItemStep.setCartPage();
+    }
+
+    @Then("checkout: your information appear")
+    public void checkoutYourInformationAppear() {
+        checkoutItemStep.verifyCheckoutInfoPage();
     }
 }

@@ -1,18 +1,49 @@
 package starter.Step;
 
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
+import starter.Pages.CartPage;
 import starter.Pages.CheckoutInfoPage;
+import starter.Pages.ItemPage;
+import starter.Pages.LoginInventoryPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CheckoutItemStep {
 
     CheckoutInfoPage checkoutInfoPage;
+    LoginInventoryPage loginInventoryPage;
+    ItemPage itemPage;
+    CartPage cartPage;
+
+    @Step
+    public void addedItem(){
+        loginInventoryPage.open();
+        loginInventoryPage.inputUsername();
+        loginInventoryPage.inputPassword();
+        loginInventoryPage.clickLoginButton();
+
+        itemPage.clickAddButton();
+        String itemNumber = itemPage.getItemNumber();
+        Assert.assertTrue(itemNumber.equalsIgnoreCase("1"));
+
+        itemPage.clickCartButton();
+        String headerPage = cartPage.getCartHeader();
+        Assert.assertTrue(headerPage.equalsIgnoreCase("Your Cart"));
+
+        String itemName = cartPage.getItemName();
+        Assert.assertTrue(itemName.equalsIgnoreCase("Sauce Labs Backpack"));
+    }
+
+    @Step
+    public void clickCheckout(){
+        cartPage.clickCheckoutButton();
+    }
 
     @Step
     public void verifyCheckoutInfoPage(){
         String header  = checkoutInfoPage.getCheckoutInfoHeader();
-        assertTrue(header.equalsIgnoreCase("information"));
+        assertTrue(header.equalsIgnoreCase("Checkout: Your Information"));
     }
     @Step
     public void sendfirstname(String firstname){
@@ -46,14 +77,25 @@ public class CheckoutItemStep {
     }
 
     @Step
+    public void verifyCartPage(){
+        String header = cartPage.getCartHeader();
+        assertTrue(header.equalsIgnoreCase("Your Cart"));
+    }
+
+    @Step
     public void verifyErrorMessage(){
-        String actualfirst = checkoutInfoPage.getErrorMessage();
-        assertTrue("Error: First Name is required".contains(actualfirst));
-
-        String actuallast = checkoutInfoPage.getErrorMessage();
-        assertTrue("Error: Last Name is required".contains(actuallast));
-
-        String actualpost = checkoutInfoPage.getErrorMessage();
-        assertTrue("Error: Postal Code is required".contains(actualpost));
+        assertTrue(checkoutInfoPage.getErrorMessage());
     };
+
+    @Step
+    public void setCartPage(){
+        loginInventoryPage.open();
+        loginInventoryPage.inputUsername();
+        loginInventoryPage.inputPassword();
+        loginInventoryPage.clickLoginButton();
+
+        itemPage.clickCartButton();
+        String headerPage = cartPage.getCartHeader();
+        Assert.assertTrue(headerPage.equalsIgnoreCase("Your Cart"));
+    }
 }
