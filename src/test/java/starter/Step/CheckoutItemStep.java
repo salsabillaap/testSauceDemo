@@ -2,26 +2,23 @@ package starter.Step;
 
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
-import starter.Pages.CartPage;
-import starter.Pages.CheckoutInfoPage;
-import starter.Pages.ItemPage;
-import starter.Pages.LoginPage;
+import starter.Pages.*;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CheckoutItemStep {
 
     CheckoutInfoPage checkoutInfoPage;
-    LoginPage loginPage;
+    LoginInventoryPage loginInventoryPage;
     ItemPage itemPage;
     CartPage cartPage;
 
     @Step
     public void addedItem(){
-        loginPage.open();
-        loginPage.inputUsername();
-        loginPage.inputPassword();
-        loginPage.clickLoginButton();
+        loginInventoryPage.open();
+        loginInventoryPage.inputUsername();
+        loginInventoryPage.inputPassword();
+        loginInventoryPage.clickLoginButton();
 
         itemPage.clickAddButton();
         String itemNumber = itemPage.getItemNumber();
@@ -81,10 +78,10 @@ public class CheckoutItemStep {
 
     @Step
     public void setCartPage(){
-        loginPage.open();
-        loginPage.inputUsername();
-        loginPage.inputPassword();
-        loginPage.clickLoginButton();
+        loginInventoryPage.open();
+        loginInventoryPage.inputUsername();
+        loginInventoryPage.inputPassword();
+        loginInventoryPage.clickLoginButton();
 
         itemPage.clickCartButton();
         String headerPage = cartPage.getCartHeader();
