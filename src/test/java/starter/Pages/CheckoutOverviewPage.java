@@ -70,4 +70,8 @@ public class CheckoutOverviewPage extends PageObject {
     public void clickfinishbutton(){
         finishbutton.click();
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4d4e34297909a00f4c1009318342d342f90f73f7

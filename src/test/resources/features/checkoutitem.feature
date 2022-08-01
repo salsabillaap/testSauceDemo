@@ -4,7 +4,7 @@ Feature: Checkout Item
   Scenario: Checkout item successfully
     Given user already add item to cart
     When user click on checkout button
-    Then checkout: your information should be appear
+    Then checkout: your information appear
     When user fill first name with "test"
     And user fill last name with "feature"
     And user fill zip postal code with "A5743"
@@ -34,6 +34,7 @@ Feature: Checkout Item
     Given user already on Checkout: Your Information page
     When user click on continue button
     Then error message will appear
+    Then error message appear
 
   @test @negative
   Scenario: Checkout item without fill Last Name
@@ -42,6 +43,7 @@ Feature: Checkout Item
     And user fill zip postal code with "A5743"
     And user click on continue button
     Then error message will appear
+    Then error message appear
 
   @test @negative
   Scenario: Checkout item without fill Postal Code
@@ -50,3 +52,4 @@ Feature: Checkout Item
     And user fill last name with "feature"
     And user click on continue button
     Then error message will appear
+    Then error message appear

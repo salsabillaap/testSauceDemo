@@ -6,6 +6,7 @@ import starter.Pages.CartPage;
 import starter.Pages.CheckoutInfoPage;
 import starter.Pages.ItemPage;
 import starter.Pages.LoginInventoryPage;
+import starter.Pages.*;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -74,6 +75,9 @@ public class CheckoutItemStep {
     @Step
     public void clickCartIcon(){
         checkoutInfoPage.clickCartIcon();
+
+        String cartheader = cartPage.getCartHeader();
+        assertTrue(cartheader.equalsIgnoreCase("Your Cart"));
     }
 
     @Step
@@ -97,5 +101,10 @@ public class CheckoutItemStep {
         itemPage.clickCartButton();
         String headerPage = cartPage.getCartHeader();
         Assert.assertTrue(headerPage.equalsIgnoreCase("Your Cart"));
+    }
+
+    @Step
+    public void verifyError(){
+        assertTrue(checkoutInfoPage.getErrorMessage());
     }
 }

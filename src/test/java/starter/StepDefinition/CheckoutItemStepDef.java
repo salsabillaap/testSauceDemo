@@ -12,7 +12,6 @@ public class CheckoutItemStepDef {
     @Steps
     CheckoutItemStep checkoutItemStep;
 
-
     @Given("user already add item to cart")
     public void userAlreadyAddItemToCart() {
         checkoutItemStep.addedItem();
@@ -25,6 +24,10 @@ public class CheckoutItemStepDef {
 
     @Then("checkout: your information should be appear")
     public void checkoutYourInformationShouldBeAppear() {
+    }
+
+    @Then("checkout: your information appear")
+    public void checkoutYourInformationAppear() {
         checkoutItemStep.verifyCheckoutInfoPage();
     }
 
@@ -65,6 +68,7 @@ public class CheckoutItemStepDef {
     @Then("return to cart page")
     public void returnToCartPage() {
         checkoutItemStep.verifyCartPage();
+        checkoutItemStep.clickCartIcon();
     }
 
     @When("user click on cart icon")
@@ -77,13 +81,13 @@ public class CheckoutItemStepDef {
         checkoutItemStep.verifyErrorMessage();
     }
 
+    @Then("error message appear")
+    public void errorMessageAppear() {
+        checkoutItemStep.verifyError();
+    }
+
     @Given("user already on cart page")
     public void userAlreadyOnCartPage() {
         checkoutItemStep.setCartPage();
-    }
-
-    @Then("checkout: your information appear")
-    public void checkoutYourInformationAppear() {
-        checkoutItemStep.verifyCheckoutInfoPage();
     }
 }
