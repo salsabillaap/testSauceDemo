@@ -1,4 +1,4 @@
-# Mekari Jurnal Testing
+# Sauce Demo Testing
 Welcome to Java Demo Scripts designed by Salsabilla Aliska Putri to provide examples of how to use Sauce Labs technology. This repository contains everything you need to get started with the web, visually, functionally, and all other types of automation using Java.
 
 ## Table of contents
